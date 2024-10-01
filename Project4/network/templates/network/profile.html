@@ -1,0 +1,58 @@
+{% extends "network/posts.html" %}
+{% block profile %}
+{% load static %}
+
+<!-- here we need to show the number of follows and the number of followings-->
+<div id="follow-count" class="container" data-user-id="{{ user.id }}">
+    <div id="followings-count">
+    </div>
+    <div id="followers-count">
+    </div>
+
+{% if user.is_authenticated and user != request.user %}
+    <button id="follow-button" class="btn"></button>    
+{% endif %}
+
+</div>
+<script src="{% static 'network/profile.js' %}" defer></script>
+
+{% endblock %}
+
+
+{% block paginator %}
+<div class="container text-center mt-6">
+
+
+  <nav aria-label="...">
+    <ul class="pagination">
+      
+      <li class="page-item {% if not posts.has_previous %}disabled{% endif %}">
+        <a class="page-link" href="{% if posts.has_previous %}{% url 'profile' user_id=user.id i=posts.previous_page_number %}{% endif %}">Previous</a>
+      </li>
+      
+      {% for i in paginator.page_range %}
+        {% if i == posts.number %}
+          <li class="page-item active" aria-current="page">
+            <span class="page-link">
+              {{ i }}
+              <span class="sr-only">(current)</span>
+            </span>
+          </li>
+        {% else %}
+          <li class="page-item">
+            <a class="page-link" href="{% url 'profile' user_id=user.id i=i %}">{{ i }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+  
+  
+      <li class="page-item {% if not posts.has_next %}disabled{% endif %}">
+        <a class="page-link" href="{% if posts.has_next %}{% url 'profile' user_id=user.id i=posts.next_page_number %}{% endif %}">Next</a>
+      </li>
+  
+    </ul>
+  </nav>
+  
+  </div>
+{% endblock %}
+

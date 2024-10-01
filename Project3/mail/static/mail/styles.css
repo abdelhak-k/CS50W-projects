@@ -1,0 +1,49 @@
+textarea {
+  min-height: 400px;
+}
+
+.email {
+  line-height: 30px;
+  padding: 10px;
+  margin: 10px;
+  text-align: left; 
+  overflow: hidden;
+  border: 2px solid black;
+  border-radius: 5px;
+  cursor: pointer; 
+  transition: background-color 0.3s ease; /*for the hover*/
+}
+
+.email:hover {
+  background-color: #f0f0f0; 
+}
+.time {
+  font-size: x-small;
+  font-style: italic;
+  color: gray;
+}
+
+.body {
+  font-size: small;
+}
+
+.read {
+  background-color: LightGray;
+}
+
+.unread {
+  background-color: white;
+}
+
+p {
+  white-space: pre-wrap;
+}
+
+.archive {
+  width: 62px;
+  text-align: center;
+  font-size: small;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

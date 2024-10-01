@@ -1,0 +1,38 @@
+body{
+    margin-top:20px;
+    background:#eee;
+}
+
+.g-bg-secondary {
+    background-color: #fafafa !important;
+}
+
+.g-font-size-12 {
+    font-size: 0.85714rem !important;
+}
+
+.post {
+    margin-top:20px;
+}
+
+small {
+    font-size: x-small;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.g-color-gray-dark-v4 {
+    color: #1b1313bb !important;
+}
+
+.g-font-size-12 {
+    font-size: 0.7rem !important;
+}
+
+
+.list-item-spacing {
+    margin-right: 55px;
+}
+
+.no-underline {
+    text-decoration: none;
+}

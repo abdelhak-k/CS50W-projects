@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+
+{% block title %}
+    {{ entry }}
+{% endblock %}
+
+{% block body %}
+
+{% if content %}
+    {{ content|safe }}
+    <a href="{% url 'edit' entry=entry %}" class="btn btn-primary">Edit here</a>
+{% else %}
+    <h2>
+        Error 404: title '{{entry}}' not found
+    </h2>
+    <p>The requested URL 'wiki/{{ entry }}' does not exist!</p>
+    <p>Check the <a href="{% url 'index' %}">home</a> page to see available articles.</p>
+
+{% endif %}
+
+
+{% endblock %}

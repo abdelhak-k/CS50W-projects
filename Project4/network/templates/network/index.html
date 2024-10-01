@@ -1,0 +1,59 @@
+{% extends "network/posts.html" %}
+{% block newpost %}
+{% if user.is_authenticated%}
+<div class="container">
+	<div class="row">
+	    <div class="col-md-8 col-md-offset-2">
+    		<h3>Create post</h3>
+    		<form action="{% url 'new_post' %}" method="POST">
+          {% csrf_token %}
+    		    <div class="form-group">
+    		        <textarea rows="3" class="form-control" name="content" placeholder="what's new?"></textarea>
+    		    </div>
+    		    <div class="form-group mt-2 ms-2 mb-4">
+    		        <button type="submit" class="btn btn-primary">Create</button>
+    		    </div>
+    		</form>
+		</div>
+	</div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block paginator %}
+<div class="container text-center mt-6">
+
+
+  <nav aria-label="...">
+    <ul class="pagination">
+      
+      <li class="page-item {% if not posts.has_previous %}disabled{% endif %}">
+        <a class="page-link" href="{% if posts.has_previous %}{% url 'page' i=posts.previous_page_number %}{% endif %}">Previous</a>
+      </li>
+      
+      {% for i in paginator.page_range %}
+        {% if i == posts.number %}
+          <li class="page-item active" aria-current="page">
+            <span class="page-link">
+              {{ i }}
+              <span class="sr-only">(current)</span>
+            </span>
+          </li>
+        {% else %}
+          <li class="page-item">
+            <a class="page-link" href="{% url 'page' i=i %}">{{ i }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+  
+  
+      <li class="page-item {% if not posts.has_next %}disabled{% endif %}">
+        <a class="page-link" href="{% if posts.has_next %}{% url 'page' i=posts.next_page_number %}{% endif %}">Next</a>
+      </li>
+  
+    </ul>
+  </nav>
+  
+  </div>
+{% endblock %}
+
