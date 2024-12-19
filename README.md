@@ -33,4 +33,4 @@
 [code](https://github.com/abdelhak-k/GigVerse)
 
 
-Hit star if this repository helps you to your cs50 journey.
+Hit star if this repository helps you in your cs50 journey.
